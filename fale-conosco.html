@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang='pt-br'>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Google Glass - Fale conosco</title>
+    <link rel="stylesheet" type="text/css" href="_css/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="_css/form.css"/>
+    <script language="javascript" src="_javascript/funcoes.js"></script>
+    <script>
+        function calc_total() {
+            var qtd = parseInt(document.getElementById('qtdId').value);
+            tot = qtd * 1500;
+            document.getElementById('valorId').value = tot;
+        }
+    </script>
+</head>
+
+<body>
+    <div id="interface">
+        <header id="cabecalho">
+            <hgroup>
+                <h1>Google Glass</h1>
+                <h2>A revolução do Google está chegando</h2>
+            </hgroup>
+            <img id="icone" src="_imagens/contato.png" />
+            <nav id="menu">
+                <h1>Menu Principal</h1>
+                <ul>
+                    <li onmouseover="mudaFoto('_imagens/home.png')"
+                        onmouseout="mudaFoto('_imagens/contato.png')"><a href="index.html">Home</a></li>
+                    <li onmouseover="mudaFoto ('_imagens/especificacoes.png')"
+                        onmouseout="mudaFoto('_imagens/contato.png')"><a
+                            href="specs.html">Especificações</a></li>
+                    <li onmouseover="mudaFoto ('_imagens/fotos.png')"
+                        onmouseout="mudaFoto('_imagens/contato.png')"><a href="fotos.html">Fotos</a></li>
+                    <li onmouseover="mudaFoto('_imagens/multimidia.png')"
+                        onmouseout="mudaFoto('_imagens/contato.png')"><a
+                            href="multimidia.html">Multimídia</a></li>
+                    <li onmouseover="mudaFoto('_imagens/contato.png')"
+                        onmouseout="mudaFoto('_imagens/contato.png')"><a href="fale-conosco.html">Fale
+                            conosco</a></li>
+                </ul>
+            </nav>
+        </header>
+        <section>
+            <article id="artigo-1">
+                <hgroup>
+                    <h3 class='breadCrumbs'> Fale Conosco > Contato</h3>
+                    <h1>Formulário de Contato</h1>
+                    <h3>por Gustavo Guanabara</h3>
+                </hgroup>
+                
+                <form id="fUsu" method="POST" oninput="calc_total();">
+                    <fieldset id="userId">
+                        <legend>Identificação do Usuário</legend>
+                        <p><label for="nameId">Nome&nbsp;</label><input type="text" name="tName" id="nameId" placeholder="Digite seu nome" size="20"  maxlength="30" /></p>
+                        <p><label for="senhaId">Senha&nbsp;</label><input type="password" name="tSenha" id="senhaId" placeholder="8 dígitos" size="8" maxlength="8/>" </p>
+                        <p><label for="emailId">E-mail&nbsp;</label><input type="email" name="tEmail" id="emailId" size="20" maxlength="40"/></p>
+                        <p><label for="nascId">Data de Nascimento&nbsp;</label><input type="date" name="tNasc" id="nascId"/></p>
+                        <fieldset id="sexUser">
+                            <legend>Sexo</legend>
+                            <input type="radio" name="tSexo" id="mascId" checked/> <label for="mascId">&nbsp;Masculino</label>
+                            <input type="radio" name="tSexo" id="femId"/><label for="femId">&nbsp;Feminino</label> 
+                        </fieldset>
+                    </fieldset>
+                      
+                    <fieldset id="usuEnd">
+                        <legend>Endereço do Usuário</legend> 
+                        <p><label for="endId">Logradouro&nbsp;</label><input type="text" name="tEnd" id="endId" size="13" maxlength="80" placeholder="Rua, Av, Trav..."/></p>
+                        <p><label for="numId">Número&nbsp;</label><input type="number" name="tNum" id="numId" min="0" max="99999" placeholder="ex: 306"/></p>
+                        <p><label for="estId">Estado&nbsp;</label>
+                            <select name="tEst" id="estId">
+                                <optgroup label="Região Sudeste">
+                                    <option selected>RJ</option>
+                                    <option>SP</option>
+                                    <option>MG</option>
+                                </optgroup>
+                                
+                                <optgroup label="Ragiao Sul">
+                                    <option>PR</option>
+                                    <option>SC</option>
+                                    <option>RS</option>
+                                </optgroup>
+                            </select>
+                        </p>
+                        <p><label for="cidId">Cidade&nbsp;</label><input type="text" name="tCid" id="cidId" size="13" maxlength="30" placeholder="ex: Rio de Janeiro" list="cidList"/></p>
+                        <datalist id="cidList">
+                            <option value="Rio de Janeiro"></option>
+                            <option value="Niterói"></option>
+                            <option value="Nova Iguaçu"></option>
+                            <option value="Belford Roxo"></option>
+                        </datalist>
+                    </fieldset>  
+                    <fieldset id="usuMsg">
+                        <legend>Mensagem do Usuário</legend> 
+                        <p><label for="urgId">Grau de Urgência&nbsp;</label>&nbsp;&nbsp;&nbsp;&nbsp;Mín<input type="range" name="tUrg" id="urgId" min="0" max="10" step="2"/>Máx</p>
+                        <p><label for="msgId">Mensagem&nbsp;</label></br>
+                            <textarea name="tMsg" id="msgId" cols="35" rows="5" placeholder="Deixei aqui sua mensagem"></textarea>
+                        </p>
+                    </fieldset>
+                   
+                    <fieldset id="buyId">
+                        <legend>Quero um Google Glass</legend> 
+                        <p><input type="checkbox" name="cPed" id="pedId" checked/><label for="pedId">Gostaria de adquirir um Google Glass quando disponível</label></p>
+                        <p><label for="corId">Cor&nbsp;</label><input type="color" name="corPed" id="corId" value="#000000"/></p>
+                        <p><label for="qtdId">Quantidade&nbsp;
+                            <input type="number" min="0" max="5" value="0" name="qtdPed" id="qtdId"/></label>
+                        </p>
+                        <p><label for="valorId">Preço Total &nbsp;R$&nbsp;
+                            <input name="valorPed" id="valorId" type="text" readonly size="10" placeholder="Valor a pagar"/></label>
+                        </p>
+                    </fieldset>  
+                    <input type="submit" value="Enviar" name="bEnviar" id="enviarId">
+                </form>
+            </article>
+        </section>
+        <footer id="rodape">
+            <div>&copy;Copyright 2013 - by Gustavo Guanabara</br></br><a href="http://facebook.com">Facebook</a> | <a
+                    href="http://twitter.com">Twitter</a></div>
+        </footer>
+    </div>
+</body>
+
+</html>
